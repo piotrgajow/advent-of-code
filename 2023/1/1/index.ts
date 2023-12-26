@@ -1,8 +1,7 @@
 import {TaskSolution} from "../../../common/TaskSolution";
+import {add} from "../../../common/utils";
 
-function add(acc: number, curr: number): number {
-    return acc + curr;
-}
+
 
 function getCalibrationValue(line: string): number {
     const found = line.match(/\d/g);

@@ -1,9 +1,5 @@
 import {TaskSolution} from "../../../common/TaskSolution";
-import * as path from "path";
-
-function add(acc: number, curr: number): number {
-    return acc + curr;
-}
+import {add} from "../../../common/utils";
 
 const DIGIT_MAP = {
     one: '1',
