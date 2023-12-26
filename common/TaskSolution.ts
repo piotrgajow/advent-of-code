@@ -7,7 +7,7 @@ export class TaskSolution implements Solution {
     readonly #tests: TaskTest[];
     readonly #process: (input: string) => string;
 
-    constructor(process: (input: string) => string, , inputFile: string, ...tests: TaskTest[]) {
+    constructor(process: (input: string) => string, inputFile: string, ...tests: TaskTest[]) {
         this.#process = process;
         this.#inputFile = inputFile;
         this.#tests = tests;
@@ -18,11 +18,12 @@ export class TaskSolution implements Solution {
             const result = await this.#run(testFile);
             if (result !== expectedResult) {
                 console.log(`Test ${testFile} failed: Expected ${expectedResult}, got ${result}`);
+                return false;
             }
-            return result;
+            return true;
         });
-        if (testResults.every((it) => it)) {
-            console.log('Test Passed!');
+        if ((await Promise.all(testResults)).every((it) => it)) {
+            console.log('Tests Passed!');
             const result = await this.#run(this.#inputFile);
             console.log(`Result: ${result}`);
         }
