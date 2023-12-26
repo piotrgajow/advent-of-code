@@ -43,4 +43,4 @@ function solve(input: string): string {
     return String(result);
 }
 
-export default new TaskSolution(solve, './2023/1/2/test.txt', '281', './2023/1/2/input.txt')
+export default new TaskSolution(solve, './2023/1/2/input.txt', ['./2023/1/2/test.txt', '281']);

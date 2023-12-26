@@ -1,29 +1,31 @@
-import {Solution} from "./index";
+import {Solution, TaskTest} from "./index";
 import {readFile} from "node:fs/promises";
 
 export class TaskSolution implements Solution {
 
     readonly #inputFile: string;
-    readonly #testFile: string;
-    readonly #testExpected: string;
+    readonly #tests: TaskTest[];
     readonly #process: (input: string) => string;
 
-    constructor(process: (input: string) => string, testFile: string, testExpected: string, inputFile: string) {
+    constructor(process: (input: string) => string, , inputFile: string, ...tests: TaskTest[]) {
         this.#process = process;
         this.#inputFile = inputFile;
-        this.#testFile = testFile;
-        this.#testExpected = testExpected;
+        this.#tests = tests;
     }
 
     async run(): Promise<void> {
-        const testResult = await this.#run(this.#testFile);
-        if (testResult !== this.#testExpected) {
-            console.log(`Test failed: Expected ${this.#testExpected}, got ${testResult}`);
-            return;
+        const testResults = this.#tests.map(async ([testFile, expectedResult]) => {
+            const result = await this.#run(testFile);
+            if (result !== expectedResult) {
+                console.log(`Test ${testFile} failed: Expected ${expectedResult}, got ${result}`);
+            }
+            return result;
+        });
+        if (testResults.every((it) => it)) {
+            console.log('Test Passed!');
+            const result = await this.#run(this.#inputFile);
+            console.log(`Result: ${result}`);
         }
-        console.log('Test Passed!');
-        const result = await this.#run(this.#inputFile);
-        console.log(`Result: ${result}`);
     }
 
     async #run(fileName: string): Promise<string> {
