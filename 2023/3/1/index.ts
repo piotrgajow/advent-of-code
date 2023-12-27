@@ -126,4 +126,4 @@ const TESTS = [
     ['./2023/3/1/test3.txt', '0']
 ];
 
-export default new TaskSolution(solve, './2023/3/1/input.txt', ...TESTS);
+export default new TaskSolution(solve, './2023/3/input.txt', ...TESTS);

@@ -60,4 +60,4 @@ function isPossible(game: Game): boolean {
     return game.cubes.every((it) => it.red <= AVAILABLE.red && it.green <= AVAILABLE.green && it.blue <= AVAILABLE.blue);
 }
 
-export default new TaskSolution(solve, './2023/2/1/input.txt', ['./2023/2/1/test.txt', '8']);
+export default new TaskSolution(solve, './2023/2/input.txt', ['./2023/2/1/test.txt', '8']);

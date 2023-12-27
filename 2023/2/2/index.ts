@@ -60,4 +60,4 @@ function getPower(game: Game): number {
     return minimumSet.red * minimumSet.green * minimumSet.blue;
 }
 
-export default new TaskSolution(solve, './2023/2/1/input.txt', ['./2023/2/1/test.txt', '2286']);
+export default new TaskSolution(solve, './2023/2/input.txt', ['./2023/2/1/test.txt', '2286']);
