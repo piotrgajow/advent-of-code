@@ -20,6 +20,6 @@ async function run(): Promise<void> {
             console.error(`Could not find task solution at ${solutionPath}`);
             return;
         }
-        console.error(e);
+        throw e;
     }
 }
