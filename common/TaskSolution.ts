@@ -31,7 +31,7 @@ export class TaskSolution implements Solution {
 
     async #run(fileName: string): Promise<string> {
         const input = await readFile(fileName, { encoding: 'utf-8' });
-        return this.#process(input);
+        return this.#process(input.replaceAll('\r\n', '\n'));
     }
 }
 
