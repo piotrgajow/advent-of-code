@@ -1,5 +1,4 @@
-import {TaskSolution} from "../../../common/TaskSolution";
-import {add} from "../../../common/utils";
+import {add, TaskSolution} from "../../../common";
 
 interface Card {
     id: number;
@@ -18,9 +17,9 @@ function solve(input: string): string {
 function parseCards(input: string): Card {
     const found = input.match(/Card +(?<id>\d+):(?<winning>.*)\|(?<have>.*)/);
     const id = Number(found.groups.id);
-    const winning  = found.groups.winning.split(' ').filter((it) => !!it).map((it) => Number(it));
-    const have  = found.groups.have.split(' ').filter((it) => !!it).map((it) => Number(it));
-    return { id, winning, have };
+    const winning = found.groups.winning.split(' ').filter((it) => !!it).map((it) => Number(it));
+    const have = found.groups.have.split(' ').filter((it) => !!it).map((it) => Number(it));
+    return {id, winning, have};
 }
 
 function getScore(card: Card): number {

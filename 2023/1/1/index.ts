@@ -1,7 +1,4 @@
-import {TaskSolution} from "../../../common/TaskSolution";
-import {add} from "../../../common/utils";
-
-
+import {add, TaskSolution} from "../../../common";
 
 function getCalibrationValue(line: string): number {
     const found = line.match(/\d/g);

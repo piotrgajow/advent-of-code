@@ -1,5 +1,4 @@
-import {TaskSolution} from "../../../common/TaskSolution";
-import {add} from "../../../common/utils";
+import {add, TaskSolution} from "../../../common";
 
 interface Game {
     id: number;
@@ -48,7 +47,7 @@ function parseCubes(input: string): Cubes {
                 green: curr.green ? Number(curr.green) : acc.green,
                 blue: curr.blue ? Number(curr.blue) : acc.blue,
             }
-        }, { red: 0, green: 0, blue: 0 });
+        }, {red: 0, green: 0, blue: 0});
 }
 
 function parseColors(input: string): Record<Color, string | undefined> {

@@ -1,5 +1,4 @@
-import {TaskSolution} from "../../../common/TaskSolution";
-import {add} from "../../../common/utils";
+import {add, TaskSolution} from "../../../common";
 
 interface Game {
     id: number;
@@ -41,7 +40,7 @@ function parseCubes(input: string): Cubes {
                 green: curr.green ? Number(curr.green) : acc.green,
                 blue: curr.blue ? Number(curr.blue) : acc.blue,
             }
-        }, { red: 0, green: 0, blue: 0 });
+        }, {red: 0, green: 0, blue: 0});
 }
 
 function parseColors(input: string): Record<Color, string | undefined> {
@@ -56,7 +55,7 @@ function getPower(game: Game): number {
             green: Math.max(acc.green, curr.green),
             blue: Math.max(acc.blue, curr.blue),
         }
-    }, { red: 0, green: 0, blue: 0 });
+    }, {red: 0, green: 0, blue: 0});
     return minimumSet.red * minimumSet.green * minimumSet.blue;
 }
 

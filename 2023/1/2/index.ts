@@ -1,5 +1,4 @@
-import {TaskSolution} from "../../../common/TaskSolution";
-import {add} from "../../../common/utils";
+import {add, TaskSolution} from "../../../common";
 
 const DIGIT_MAP = {
     one: '1',
