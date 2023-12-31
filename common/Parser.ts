@@ -3,7 +3,7 @@ export abstract class Parser<T> {
     private readonly input: string;
     private data: T;
 
-    protected constructor(input: string) {
+    constructor(input: string) {
         this.input = input;
     }
 
