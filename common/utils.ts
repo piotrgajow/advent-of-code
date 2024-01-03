@@ -17,3 +17,9 @@ export function gcd(a: number, b: number): number {
 export function lcm(a: number, b: number): number {
     return a / gcd(a,b) * b;
 }
+
+export function stringSplice(input: string, pos: number, insert: string, toDelete: number = 0): string {
+    const array = input.split('');
+    array.splice(pos, toDelete, insert);
+    return array.join('');
+}

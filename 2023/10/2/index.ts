@@ -1,4 +1,4 @@
-import {TaskSolution} from "../../../common";
+import {stringSplice, TaskSolution} from "../../../common";
 
 const TASK_NO = '10';
 
@@ -66,9 +66,7 @@ class Pipes {
         const startElement = Object.entries(ELEMENTS)
             .find(([elem, dirs]) => dirs.includes(startDirections[0]) && dirs.includes(startDirections[1]))?.[0];
 
-        const l = this.map[start.row].split('');
-        l[start.col] = startElement;
-        this.map[start.row] = l.join('');
+        this.map[start.row] = stringSplice(this.map[start.row], start.col, startElement, 1);
 
         while (this.toCheck.length) {
             this.checkPoint(this.toCheck.shift());
